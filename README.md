@@ -1,139 +1,235 @@
-# 🤖 Aryabhata - Interactive Robot with AI Vision & Servo Control
+# 🤖 Aryabhata - Next-Gen Humanoid with AI Vision & Servo Control
 
-A cutting-edge humanoid robot controlled by **ESP32-S3** microcontroller with dual TFT eye displays, AI-powered hand gesture recognition, and real-time interaction through a Python Flask web interface.
+<p align="center">
+  <strong>An interactive humanoid robot controlled by ESP32-S3 with dual TFT displays, movable hands and real-time web interaction.</strong>
+</p>
+
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Microcontroller-ESP32--S3-orange?style=for-the-badge&logo=espressif" alt="ESP32-S3" />
+  <img src="https://img.shields.io/badge/AI_Vision-MediaPipe-blue?style=for-the-badge&logo=google" alt="MediaPipe" />
+  <img src="https://img.shields.io/badge/Backend-Flask-lightgrey?style=for-the-badge&logo=flask" alt="Flask" />
+  <img src="https://img.shields.io/badge/UI-Interactive_Dashboard-success?style=for-the-badge" alt="Interactive UI" />
+  <img src="https://img.shields.io/badge/Servos-20kg_DS3218-red?style=for-the-badge" alt="DS3218 Servos" />
+  <img src="https://img.shields.io/badge/Language-Arduino%20%7C%20Python-gold?style=for-the-badge" alt="Languages" />
+</p>
+
+---
 
 <div align="center">
-  <img src="images/robot_1.jpeg" width="300" alt="Aryabhata Robot Model" />
+  <h3 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #2c3e50; margin-bottom: 20px;">
+    🎯 Meet Aryabhata
+  </h3>
+  
+  <img src="images/robot_1.jpeg" width="400" alt="Aryabhata Robot Model" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin: 20px 0;" />
+  
+  <p style="font-size: 16px; color: #34495e; font-weight: 500; margin: 10px 0;">
+    <strong>A Complete Humanoid Robot</strong><br>
+    <em style="color: #7f8c8d;">Named after the legendary mathematician, combining ancient wisdom with modern AI</em>
+  </p>
 </div>
 
 ---
 
-## ✨ Features
+<div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 40px 30px; border-radius: 12px; margin: 30px 0;">
+
+## ⚡ Key Features & Capabilities
+
+<div style="display: grid; gap: 30px;">
 
 ### 🎭 **Expressive Eye System**
-- **Dual 160×128 TFT LCD Displays** for real-time eye animations
-- **8 Emotion States**: Neutral, Angry, Sad, Loving, Sleeping, Wrong, Correct, and interactive responses
-- **Dynamic Effects**: Blinking, tears, pupil tracking, and pulsing animations
+- **Dual 160×128 TFT LCD Displays** with real-time animations
+- **8 Emotion States**: Neutral, Angry, Sad, Loving, Sleeping, Wrong, Correct
+- **Advanced Effects**: Blinking • Tears • Pupil tracking • Pulsing animations
 
-### 🦾 **Servo Control**
-- **20kg DS3218 Digital Servos** for smooth, powerful movements
-- **Dual Servo Control** (Servo A & B) for expressive gestures
-- **PCA9685 PWM Driver** for precise servo positioning
-- Handshake, wave, and custom motion sequences
+### 🦾 **Precision Servo Control**
+- **2× 20kg DS3218 Digital Servos** — High torque, smooth movements
+- **PCA9685 PWM Driver** — 16-channel precision control
+- **Custom Routines**: Handshake • Wave • Dance sequences
 
-### 🎮 **Interactive Games & Recognition**
-1. **Air Gesture Game** - Draw shapes in the air (Line, Arc, Circle, Zigzag)
-2. **Face Matching Game** - Recognize and match faces with Hindu mythology characters
-3. **Rock-Paper-Scissors** - Classic hand gesture game with AI opponent
+### 🎮 **Interactive Game Suite**
+1. **Air Gesture Recognition** — Draw shapes in the air (Line, Arc, Circle, Zigzag)
+2. **Face Matching Challenge** — Recognize mythological characters
+3. **Rock-Paper-Scissors AI** — Compete with intelligent opponent
 
-### 🌐 **Web & WiFi Integration**
-- **WiFi AP Mode** - Robot creates its own WiFi hotspot
-- **WebSocket Communication** - Real-time interaction between PC and robot
-- **Flask Web Server** - Beautiful web UI for control and streaming
-- **Live Video Streaming** - Real-time camera feed with gesture analysis
+### 🌐 **Web & Connectivity**
+- **WiFi AP Mode** — Self-hosted robot hotspot
+- **Real-time WebSocket Communication** between PC and robot
+- **Flask Web Dashboard** — Beautiful, intuitive control interface
+- **Live Video Feed** — Camera stream with gesture overlay
 
 ### 🧠 **AI & Computer Vision**
-- **MediaPipe Hand Tracking** - Accurate hand detection and landmark tracking
-- **Face Detection** - Real-time face recognition and matching
-- **Gesture Recognition** - Interpret hand movements as commands
+- **MediaPipe Hand Tracking** — 21-point hand landmark detection
+- **Face Detection & Analysis** — Real-time facial feature recognition
+- **Gesture Interpretation** — Convert hand movements into commands
+
+</div>
+
+</div>
 
 ---
 
-## � Visual Gallery
+<h2 style="text-align: center; font-family: 'Segoe UI', Tahoma, sans-serif; color: #2c3e50; margin: 40px 0 30px 0;">📸 Gallery & Component Showcase</h2>
 
-### Robot Components & Features
+<div style="background: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%); padding: 40px 30px; border-radius: 15px; margin: 20px 0; border-left: 5px solid #60a5fa;">
 
-<table>
+### 🎯 Core Hardware System
+
+<table style="margin: 20px 0; border-collapse: collapse; width: 100%;">
   <tr>
-    <td align="center" width="25%">
-      <img src="images/robot_1.jpeg" width="200" alt="Full Robot Model" />
-      <br><b>Full Robot Model</b><br>Complete Aryabhata humanoid with expressive eyes
+    <td align="center" width="25%" style="padding: 20px;">
+      <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px;">
+        <img src="images/robot_1.jpeg" width="180" alt="Full Robot Model" style="border-radius: 8px;" />
+        <h4 style="margin: 15px 0 5px 0; color: #60a5fa; font-weight: 600;">🤖 Full Robot Model</h4>
+        <p style="margin: 0; font-size: 13px; color: #cbd5e1;">Complete humanoid with expressive TFT displays</p>
+      </div>
     </td>
-    <td align="center" width="25%">
-      <img src="images/robot_2.jpeg" width="200" alt="Robot Control System" />
-      <br><b>Control System</b><br>20kg DS3218 Servo mechanics & hardware
+    <td align="center" width="25%" style="padding: 20px;">
+      <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px;">
+        <img src="images/robot_2.jpeg" width="180" alt="Robot Control System" style="border-radius: 8px;" />
+        <h4 style="margin: 15px 0 5px 0; color: #60a5fa; font-weight: 600;">⚙️ Servo Control System</h4>
+        <p style="margin: 0; font-size: 13px; color: #cbd5e1;">20kg DS3218 servo mechanics & hardware</p>
+      </div>
     </td>
-    <td align="center" width="25%">
-      <img src="images/robot_3.jpeg" width="200" alt="Happy Expression" />
-      <br><b>Happy Eyes</b><br>TFT Display - Neutral/Happy Expression
+    <td align="center" width="25%" style="padding: 20px;">
+      <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px;">
+        <img src="images/robot_3.jpeg" width="180" alt="Happy Expression" style="border-radius: 8px;" />
+        <h4 style="margin: 15px 0 5px 0; color: #34d399; font-weight: 600;">😊 Happy Expression</h4>
+        <p style="margin: 0; font-size: 13px; color: #cbd5e1;">TFT display - Neutral/Happy emotion state</p>
+      </div>
     </td>
-    <td align="center" width="25%">
-      <img src="images/robot_4.jpeg" width="200" alt="Sad Expression" />
-      <br><b>Sad Eyes</b><br>TFT Display - Sad Emotion Response
+    <td align="center" width="25%" style="padding: 20px;">
+      <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px;">
+        <img src="images/robot_4.jpeg" width="180" alt="Sad Expression" style="border-radius: 8px;" />
+        <h4 style="margin: 15px 0 5px 0; color: #f87171; font-weight: 600;">😢 Sad Expression</h4>
+        <p style="margin: 0; font-size: 13px; color: #cbd5e1;">TFT display - Sad emotion response</p>
+      </div>
     </td>
   </tr>
 </table>
 
-<table>
+### 🚀 Advanced Features
+
+<table style="margin: 20px 0; border-collapse: collapse; width: 100%;">
   <tr>
-    <td align="center" width="50%">
-      <img src="images/robot_5.jpeg" width="220" alt="Facial Features" />
-      <br><b>Facial Features & Face Lines</b><br>Aryabhata Control - MediaPipe Face Detection
+    <td align="center" width="50%" style="padding: 20px;">
+      <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px;">
+        <img src="images/robot_5.jpeg" width="220" alt="Face Detection Features" style="border-radius: 8px;" />
+        <h4 style="margin: 15px 0 5px 0; color: #a78bfa; font-weight: 600;">🧠 AI Face Detection</h4>
+        <p style="margin: 0; font-size: 13px; color: #cbd5e1;">MediaPipe face lines & landmark analysis</p>
+      </div>
     </td>
-    <td align="center" width="50%">
-      <img src="images/control.jpeg" width="220" alt="Game Control Interface" />
-      <br><b>Game Control Interface</b><br>Python Flask Web - Interactive Games Dashboard
+    <td align="center" width="50%" style="padding: 20px;">
+      <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px;">
+        <img src="images/control.png" width="220" alt="Game Control Interface" style="border-radius: 8px;" />
+        <h4 style="margin: 15px 0 5px 0; color: #fbbf24; font-weight: 600;">🎮 Game Dashboard</h4>
+        <p style="margin: 0; font-size: 13px; color: #cbd5e1;">Python Flask web interface - Interactive control panel</p>
+      </div>
     </td>
   </tr>
 </table>
 
+</div>
+
 ---
 
-## �🔧 Hardware Requirements
+## 🎬 Live Demo - Watch the Robot in Action
 
-| Component | Specifications |
-|-----------|-----------------|
-| **Microcontroller** | ESP32-S3 (240MHz, 8MB PSRAM) |
-| **Servos** | 2× 20kg DS3218 Digital Servos |
-| **Eye Displays** | 2× 160×128 ST7735 TFT LCD |
-| **Servo Driver** | PCA9685 PWM Servo Driver |
-| **LED Indicator** | WS2812B NeoPixel (1× LED) |
-| **Camera** | USB Webcam (OpenCV compatible) |
-| **Power Supply** | 5V USB Power Bank (for ESP32), 6-8V Battery (for Servos) |
+<div align="center" style="margin: 50px 0; padding: 30px; background: linear-gradient(135deg, rgba(30,30,46,0.8), rgba(42,42,62,0.8)); border-radius: 15px; border: 2px solid #60a5fa;">
+  
+  <h3 style="color: #60a5fa; margin: 0 0 20px 0; font-family: 'Segoe UI', Tahoma, sans-serif;">Full Demonstration Video</h3>
+  
+  <video width="620" height="349" controls style="border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.4); background: #000;">
+    <source src="images/robot_video.mp4" type="video/mp4">
+    Your browser does not support the video tag. <a href="images/robot_video.mp4">Download video</a>
+  </video>
 
-### 📌 Pin Configuration (ESP32-S3)
+  <p style="margin: 20px 0 0 0; font-size: 14px; color: #cbd5e1;">
+    <strong>🎯 See the robot:</strong> Playing interactive games • Expressing emotions • Responding to gestures • Real-time AI interaction
+  </p>
+</div>
 
-**I2C Bus:**
-- SDA: GPIO 1
-- SCL: GPIO 2
+---
+
+<h2 style="text-align: center; font-family: 'Segoe UI', Tahoma, sans-serif; color: #2c3e50; margin: 40px 0 30px 0;">🔧 Hardware & System Specifications</h2>
+
+<div style="background: #f8f9fa; padding: 30px; border-radius: 12px; margin: 20px 0; border-left: 5px solid #ff6b6b;">
+
+| 🎛️ Component | 📋 Specifications |
+|:----|:---|
+| **Microcontroller** | ESP32-S3 (240MHz Dual-Core, 8MB PSRAM) |
+| **Servos** | 2× DS3218 Digital Servos (20kg torque) |
+| **Eye Displays** | 2× ST7735 TFT LCD (160×128 pixels) |
+| **Motion Control** | PCA9685 PWM Servo Driver (16-channel) |
+| **Status Indicator** | WS2812B NeoPixel RGB LED |
+| **Camera** | USB Webcam (1080p recommended) |
+| **Power Supply** | 5V: ESP32 • 6-8V: Servo motors |
+
+</div>
+
+#### 📌 Pin Configuration (ESP32-S3)
+
+<div style="background: #f0f4f8; padding: 20px; border-radius: 10px; margin: 15px 0;">
+
+**I2C Bus (for Servo Driver & Sensors):**
+- **SDA**: GPIO 1
+- **SCL**: GPIO 2
 
 **TFT Display 1 (SPI):**
-- SCLK: GPIO 8, MOSI: GPIO 7, RST: GPIO 5, DC: GPIO 6, CS: GPIO 4
+- **SCLK**: GPIO 8 | **MOSI**: GPIO 7 | **RST**: GPIO 5 | **DC**: GPIO 6 | **CS**: GPIO 4
 
 **TFT Display 2 (SPI):**
-- SCLK: GPIO 13, MOSI: GPIO 12, RST: GPIO 11, DC: GPIO 9, CS: GPIO 10
+- **SCLK**: GPIO 13 | **MOSI**: GPIO 12 | **RST**: GPIO 11 | **DC**: GPIO 9 | **CS**: GPIO 10
 
-**Other:**
-- NeoPixel: GPIO 48
-- Servo Driver I2C Address: 0x40
+**Other Peripherals:**
+- **NeoPixel**: GPIO 48
+- **PCA9685 I2C Address**: `0x40`
+
+</div>
 
 ---
 
-## 📦 Software Requirements
+<h2 style="text-align: center; font-family: 'Segoe UI', Tahoma, sans-serif; color: #2c3e50; margin: 40px 0 30px 0;">📦 Software Requirements & Dependencies</h2>
 
-### Arduino/ESP32 Libraries
-```
-- Adafruit_PWMServoDriver
-- Adafruit_NeoPixel
-- Adafruit_GFX
-- Adafruit_ST7735
-- WebSocketsServer
-- WiFi (ESP32)
-```
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 20px 0;">
 
-### Python Requirements
-```
-Flask
-OpenCV (cv2)
-MediaPipe
-PySerial
-NumPy
+<div style="background: linear-gradient(135deg, #e8f4f8 0%, #f0f8fc 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #0066cc;">
+
+**🔧 Arduino/ESP32 Libraries**
+
+```cpp
+✓ Adafruit_PWMServoDriver   // Servo control
+✓ Adafruit_NeoPixel         // RGB LED control
+✓ Adafruit_GFX              // Graphics library
+✓ Adafruit_ST7735           // TFT display driver
+✓ WebSocketsServer          // Real-time communication
+✓ WiFi                      // WiFi connectivity
 ```
 
-Install Python dependencies:
+</div>
+
+<div style="background: linear-gradient(135deg, #f0e8f8 0%, #f8f0fc 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #9966cc;">
+
+**🐍 Python Requirements**
+
+```bash
+Flask==2.x              # Web framework
+opencv-python==4.x      # Computer vision
+mediapipe>=0.8          # AI hand/face detection
+pyserial>=3.5           # Serial communication
+numpy>=1.21             # Numerical computing
+Werkzeug>=2.x           # WSGI utilities
+```
+
+**Quick Install:**
 ```bash
 pip install -r requirements.txt
 ```
+
+</div>
+
+</div>
 
 ---
 
@@ -193,21 +289,7 @@ python robot.py
 
 ---
 
-## 🎬 Video Demonstration
-
-**Watch Aryabhata in Action** *(Video loads on scroll)*
-
-<div align="center" style="margin: 40px 0;">
-  
-  <video width="560" height="315" controls style="border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-    <source src="images/robot_video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
-  <br><small>📺 Full Demo: Robot plays games, expresses emotions, and interacts with users</small>
-</div>
-
----
+## 📁 Project Structure
 
 ```
 Aryabhata/
@@ -221,7 +303,7 @@ Aryabhata/
 │   ├── robot_3.jpeg          # Happy eyes (TFT display)
 │   ├── robot_4.jpeg          # Sad eyes (TFT display)
 │   ├── robot_5.jpeg          # Face lines & features detection
-│   ├── control.jpeg          # Game control interface
+│   ├── control.png           # Game control interface
 │   └── robot_video.mp4       # Full demo video
 ├── templates/                 # Flask HTML templates
 │   ├── index.html            # Main web interface
