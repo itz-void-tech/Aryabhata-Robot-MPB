@@ -414,7 +414,8 @@ This project is provided as-is for educational and experimental purposes.
 ## 👨‍💻 Author
 
 **Aryabhata Robot Project**  
-*"Named after the legendary mathematician, combining ancient wisdom with modern AI"*
+*"Named after the legendary mathematician, combining ancient wisdom with modern AI"*<br>
+**Made By: itz-void-tech**
 
 ---
 
@@ -426,3 +427,4 @@ If you find this project interesting, please ⭐ star this repository!
 
 **Last Updated**: February 2026  
 **Status**: Active Development
+
