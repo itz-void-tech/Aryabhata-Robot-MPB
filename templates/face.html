@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divya Drishti | Atma Gyan Seeker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --godly-gold: #f1d38a;
+            --pure-gold: #ffd700;
+            --royal-red: #4d0000;
+            --temple-black: #050505;
+            --saffron: #ff9933;
+            --divine-white: #f0f0f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #000;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-family: 'Cinzel Decorative', cursive;
+        }
+
+        /* 21cm x 12cm Landscape Frame */
+        .tablet-container {
+            width: 794px;   /* 21cm */
+            height: 454px;  /* 12cm */
+            background: radial-gradient(circle at center, #1a0f00 0%, #050505 100%);
+            border: 6px ridge var(--godly-gold);
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 0 100px rgba(255, 153, 51, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* DIVINE ANIMATED ELEMENTS */
+        .rotating-aura {
+            position: absolute;
+            width: 400px; height: 400px;
+            border: 1px solid var(--godly-gold);
+            border-radius: 50%;
+            top: 50%; left: -200px;
+            transform: translateY(-50%);
+            opacity: 0.1;
+            animation: slowSpin 40s linear infinite;
+        }
+        @keyframes slowSpin { from { transform: translateY(-50%) rotate(0deg); } to { transform: translateY(-50%) rotate(360deg); } }
+
+        .floating-lotus {
+            position: absolute;
+            opacity: 0.2;
+            z-index: 1;
+            animation: floatY 6s infinite ease-in-out;
+            pointer-events: none;
+        }
+        @keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        /* TOP MANTRA HEADER */
+        .mantra-header {
+            background: rgba(0,0,0,0.4);
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+            color: var(--saffron);
+            text-align: center;
+            font-size: 1.1rem;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--godly-gold);
+            text-shadow: 0 0 10px var(--saffron);
+            z-index: 10;
+        }
+
+        /* MAIN APP LAYOUT */
+        .ui-main {
+            display: grid;
+            grid-template-columns: 440px 1fr;
+            gap: 20px;
+            padding: 20px;
+            height: calc(100% - 90px);
+            z-index: 10;
+        }
+
+        /* CAMERA SECTION */
+        .eye-vault {
+            position: relative;
+            background: #000;
+            border: 3px solid var(--godly-gold);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(255,215,0,0.1);
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        #cam {
+            width: 95%; height: 90%;
+            object-fit: cover;
+            border-radius: 8px;
+            opacity: 0.8;
+            filter: contrast(1.1);
+        }
+
+        /* SCANNING ANIMATION */
+        .golden-scanner {
+            position: absolute;
+            width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--pure-gold), #fff, var(--pure-gold), transparent);
+            box-shadow: 0 0 20px var(--pure-gold);
+            z-index: 11;
+            animation: scanAction 4s ease-in-out infinite;
+        }
+        @keyframes scanAction { 0% { top: 10%; } 50% { top: 90%; } 100% { top: 10%; } }
+
+        /* COMMAND PANEL */
+        .essence-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-right: 10px;
+        }
+
+        .title-group h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(to right, #fff, var(--pure-gold), var(--saffron));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .atma-btn {
+            background: linear-gradient(180deg, var(--pure-gold), #b38600);
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Cinzel Decorative', cursive;
+            font-weight: 900;
+            color: black;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #664d00;
+            transition: 0.3s;
+        }
+        .atma-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #664d00; }
+        .atma-btn:active { transform: translateY(2px); box-shadow: 0 0 0 #000; }
+
+        /* RESULT DISPLAY */
+        #result {
+            opacity: 0;
+            transition: 1s ease-in-out;
+            border-top: 1px solid rgba(255,215,0,0.2);
+            padding-top: 15px;
+        }
+
+        #resName {
+            font-size: 1.4rem;
+            color: #fff;
+            text-shadow: 0 0 10px var(--pure-gold);
+            margin-bottom: 5px;
+        }
+
+        #resConf {
+            font-family: serif;
+            color: var(--saffron);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        #resText {
+            font-size: 0.75rem;
+            color: #ccc;
+            line-height: 1.5;
+            height: 60px;
+            overflow-y: auto;
+        }
+
+        .back-nav {
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            color: var(--godly-gold);
+            text-decoration: none;
+            font-size: 0.6rem;
+            border: 1px solid var(--godly-gold);
+            padding: 4px 8px;
+            border-radius: 4px;
+            z-index: 100;
+        }
+
+        /* BOTTOM MANTRA FOOTER */
+        .mantra-footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 10px;
+            color: var(--godly-gold);
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+            font-size: 0.9rem;
+            border-top: 1px dotted rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="tablet-container">
+        <!-- Spiritual Decorative elements -->
+        <div class="rotating-aura"></div>
+        <div class="floating-lotus" style="top: 20%; right: 10%; font-size: 3rem;">🪷</div>
+        <div class="floating-lotus" style="bottom: 10%; right: 40%; font-size: 2rem;">🕉️</div>
+
+        <a href="/" class="back-nav">← ARYAVARTA EXIT</a>
+
+        <div class="mantra-header">
+            ॥ ॐ तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् ॥
+        </div>
+
+        <div class="ui-main">
+            <!-- Left Side: Vision Feed -->
+            <div class="eye-vault">
+                <div class="golden-scanner" id="scanEffect"></div>
+                <img id="cam" src="/face/video">
+            </div>
+
+            <!-- Right Side: Essence Controls -->
+            <div class="essence-panel">
+                <div class="title-group">
+                    <h1>DIVYA DRISHTI</h1>
+                    <p style="color: var(--godly-gold); font-size: 0.6rem; letter-spacing: 3px;">Atma Gyan Protocol</p>
+                </div>
+
+                <button class="atma-btn" id="findBtn" onclick="analyzeSoul()">
+                    🔍 INITIATE SOUL SEEK
+                </button>
+
+                <div id="result">
+                    <p style="color: var(--godly-gold); font-size: 0.6rem; text-transform: uppercase;">Essence Captured</p>
+                    <h2 id="resName">UNKNOWN</h2>
+                    <span id="resConf">SEARCHING NIRVANA...</span>
+                    <p id="resText"></p>
+                </div>
+
+                <div style="margin-top: auto; font-size: 8px; color: #444; letter-spacing: 1px; line-height: 1.4;">
+                    VISHVA ADVAITA CONNECTION ACTIVE<br>
+                    SOUL SYNC STRENGTH: 100%
+                </div>
+            </div>
+        </div>
+
+        <div class="mantra-footer">
+            तत्त्वमसि ॥ Thou Art That
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById("findBtn");
+        const resContainer = document.getElementById("result");
+        const scanner = document.getElementById("scanEffect");
+
+        function analyzeSoul() {
+            // Spiritual transition state
+            btn.innerHTML = "🌀 AWAKENING INTERNAL EYE...";
+            btn.disabled = true;
+            btn.style.opacity = 0.8;
+            resContainer.style.opacity = 0;
+            
+            // Speed up scanner to show 'intense activity'
+            scanner.style.animationDuration = "1.5s";
+
+            fetch("/face/find")
+                .then(r => r.json())
+                .then(d => {
+                    scanner.style.animationDuration = "4s"; // return to slow rhythm
+                    btn.disabled = false;
+                    btn.style.opacity = 1;
+
+                    if(d.name) {
+                        btn.innerHTML = "✨ ATMA CAPTURED";
+                        btn.style.background = "linear-gradient(180deg, #fff, var(--pure-gold))";
+
+                        document.getElementById("resName").innerText = d.name;
+                        document.getElementById("resConf").innerText = "Match Confirmed | Confidence: " + d.confidence;
+                        document.getElementById("resText").innerText = d.text;
+
+                        setTimeout(() => {
+                            resContainer.style.opacity = 1;
+                        }, 200);
+                    } else {
+                        btn.innerHTML = "✖ RE-SEEK ATMA";
+                        btn.style.background = "var(--royal-red)";
+                        btn.style.color = "white";
+                    }
+                })
+                .catch(() => {
+                    btn.innerHTML = "⚠️ SYSTEM DISCORD";
+                    btn.disabled = false;
+                    scanner.style.animationDuration = "4s";
+                });
+        }
+    </script>
+</body>
+</html>

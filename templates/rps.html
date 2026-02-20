@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dharma Yudh | Divine RPS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --godly-gold: #f1d38a;
+            --pure-gold: #ffd700;
+            --royal-red: #660000;
+            --temple-black: #080808;
+            --saffron: #ff9933;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #000;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-family: 'Cinzel Decorative', cursive;
+        }
+
+        /* HARDWARE SCALE: 21cm (Width) x 12cm (Height) */
+        .tablet-landscape {
+            width: 794px;   /* 21cm */
+            height: 454px;  /* 12cm */
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a0f00 100%);
+            border: 5px solid var(--godly-gold);
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 0 80px rgba(255, 215, 0, 0.2), inset 0 0 100px #000;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* DIVINE BACKGROUND ELEMENTS */
+        .mandala-half {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border: 1px solid var(--godly-gold);
+            border-radius: 50%;
+            top: 50%;
+            right: -175px;
+            transform: translateY(-50%);
+            opacity: 0.1;
+            animation: slowRotate 30s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes slowRotate {
+            from { transform: translateY(-50%) rotate(0deg); }
+            to { transform: translateY(-50%) rotate(360deg); }
+        }
+
+        .divine-icon {
+            position: absolute;
+            opacity: 0.15;
+            z-index: 1;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* HEADER BELT */
+        .mantra-header {
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+            color: var(--saffron);
+            text-align: center;
+            font-size: 0.95rem;
+            padding: 8px 0;
+            background: rgba(0,0,0,0.5);
+            border-bottom: 1px solid rgba(241, 211, 138, 0.3);
+            text-shadow: 0 0 10px var(--saffron);
+            z-index: 5;
+        }
+
+        /* MAIN GAME UI */
+        .game-content {
+            display: grid;
+            grid-template-columns: 420px 1fr;
+            gap: 15px;
+            padding: 15px;
+            height: calc(100% - 80px);
+            z-index: 5;
+        }
+
+        .stream-view {
+            border: 3px solid var(--godly-gold);
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(241, 211, 138, 0.2);
+            position: relative;
+        }
+
+        .stream-view img { width: 100%; height: 100%; object-fit: cover; }
+
+        .battle-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(to right, #fff, var(--pure-gold), var(--saffron));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+
+        .status-pill {
+            background: rgba(102, 0, 0, 0.4);
+            border: 1px solid var(--saffron);
+            color: var(--godly-gold);
+            text-align: center;
+            padding: 5px;
+            font-size: 0.8rem;
+            border-radius: 20px;
+            letter-spacing: 2px;
+            margin: 10px 0;
+        }
+
+        /* SCORES */
+        .score-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(241, 211, 138, 0.3);
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .move-label { font-size: 0.6rem; color: #888; text-transform: uppercase; }
+        .move-val { color: var(--pure-gold); font-size: 1.2rem; }
+
+        .winner-display {
+            font-size: 1.5rem;
+            text-align: center;
+            height: 30px;
+            margin: 10px 0;
+            text-shadow: 0 0 10px var(--pure-gold);
+        }
+
+        /* BUTTONS */
+        .controls { display: grid; gap: 10px; }
+        
+        .btn {
+            font-family: 'Cinzel Decorative', cursive;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-weight: 900;
+            font-size: 0.8rem;
+        }
+
+        .btn-start {
+            background: linear-gradient(to bottom, var(--pure-gold), #b38600);
+            color: black;
+            border: none;
+            box-shadow: 0 4px 0 #664d00;
+        }
+
+        .btn-start:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #664d00; }
+        .btn-start:active { transform: translateY(2px); box-shadow: 0 0 0 #000; }
+
+        .btn-reset {
+            background: transparent;
+            color: var(--godly-gold);
+            border: 1px solid var(--godly-gold);
+        }
+
+        .back-nav {
+            position: absolute;
+            top: 45px;
+            left: 20px;
+            color: var(--godly-gold);
+            text-decoration: none;
+            font-size: 0.7rem;
+            border: 1px solid var(--godly-gold);
+            padding: 4px 8px;
+            border-radius: 4px;
+            z-index: 10;
+        }
+
+        .footer-mantra {
+            text-align: center;
+            padding: 5px;
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+            color: var(--godly-gold);
+            opacity: 0.6;
+            font-size: 0.8rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="tablet-landscape">
+        <!-- Floating Divya Background -->
+        <div class="mandala-half"></div>
+        <div class="divine-icon" style="bottom:20px; left:20px; font-size: 2rem;">🕉️</div>
+        <div class="divine-icon" style="top:60px; right:40px; font-size: 1.5rem; animation-delay: 2s;">🪷</div>
+
+        <a href="/" class="back-nav">← ARYAVARTA EXIT</a>
+
+        <div class="mantra-header">
+            ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात्॥
+        </div>
+
+        <div class="game-content">
+            <!-- Video Section -->
+            <div class="stream-view">
+                <img src="/rps/video_feed" alt="Divya Drishti Feed">
+            </div>
+
+            <!-- Interaction Section -->
+            <div class="battle-panel">
+                <header>
+                    <h1>DHARMA YUDH</h1>
+                    <div id="status-text" class="status-pill">PRATIKSHA KAREIN</div>
+                </header>
+
+                <div class="score-area">
+                    <div class="score-box">
+                        <div>
+                            <p class="move-label">Yoddha</p>
+                            <p id="p-move" class="move-val">—</p>
+                        </div>
+                        <div style="border-left: 1px solid rgba(255,255,255,0.1);"></div>
+                        <div>
+                            <p class="move-label">Shatru</p>
+                            <p id="c-move" class="move-val">—</p>
+                        </div>
+                    </div>
+                    
+                    <div id="win-display" class="winner-display" style="display: none;">
+                        VIJAYI BHAVA!
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button class="btn btn-start" onclick="startGame()">⚔️ YUDH PRARAMB</button>
+                    <button class="btn btn-reset" onclick="resetGame()">RESET SHASTRA</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-mantra">
+            ॐ शान्तिः शान्तिः शान्तिः ॥
+        </div>
+    </div>
+
+    <script>
+        async function startGame() {
+            document.getElementById('status-text').innerText = "SAAVDHAN...";
+            await fetch('/rps/start', {method: 'POST'});
+        }
+
+        async function resetGame() {
+            await fetch('/rps/reset', {method: 'POST'});
+            updateUI({state: 0, player: '—', computer: '—', winner: null});
+        }
+
+        function updateUI(data) {
+            const statusEl = document.getElementById('status-text');
+            const winEl = document.getElementById('win-display');
+
+            // Mapping states to Hindu context labels
+            if (data.state === 0) statusEl.innerText = "BATTLE READY";
+            if (data.state === 1) statusEl.innerText = "DHARA PRANAM...";
+            if (data.state === 2) statusEl.innerText = "PRAHAAR!";
+
+            if (data.state === 3) {
+                statusEl.innerText = "YUDH SAMPANN";
+                document.getElementById('p-move').innerText = data.player;
+                document.getElementById('c-move').innerText = data.computer;
+
+                winEl.innerText = data.winner === "Tie" ? "SAMAAN SHAKTI!" : (data.winner === "Player" ? "VIJAYI BHAVA!" : "SHATRU VIJAYI!");
+                winEl.style.display = 'block';
+                winEl.style.color = data.winner === "Player" ? "#4ade80" : (data.winner === "Tie" ? "#FFD700" : "#ff4444");
+            } else {
+                winEl.style.display = 'none';
+                document.getElementById('p-move').innerText = data.player;
+                document.getElementById('c-move').innerText = data.computer;
+            }
+        }
+
+        // Maintain logic sync with backend
+        setInterval(async () => {
+            try {
+                const response = await fetch('/rps/status');
+                const data = await response.json();
+                updateUI(data);
+            } catch(e) {}
+        }, 200);
+    </script>
+</body>
+</html>

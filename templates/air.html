@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra Vidya | Divine Drawing Ritual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --godly-gold: #f1d38a;
+            --pure-gold: #ffd700;
+            --royal-red: #4d0000;
+            --temple-black: #050505;
+            --saffron: #ff9933;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #000;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-family: 'Cinzel Decorative', cursive;
+        }
+
+        /* 21cm x 12cm Landscape Scale */
+        .astra-tablet {
+            width: 794px;   /* 21cm */
+            height: 454px;  /* 12cm */
+            background: radial-gradient(circle at center, #1e1100 0%, #050505 100%);
+            border: 6px ridge var(--godly-gold);
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 0 100px rgba(255, 153, 51, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* MANTRA BELT */
+        .top-mantra {
+            background: rgba(0,0,0,0.5);
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+            color: var(--saffron);
+            text-align: center;
+            font-size: 1.1rem;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--godly-gold);
+            text-shadow: 0 0 10px var(--saffron);
+            z-index: 10;
+        }
+
+        /* BACKGROUND ELEMENTS */
+        .rotating-mandala {
+            position: absolute;
+            width: 380px; height: 380px;
+            border: 1px solid var(--godly-gold);
+            border-radius: 50%;
+            top: 50%; right: -190px;
+            transform: translateY(-50%);
+            opacity: 0.1;
+            animation: slowSpin 50s linear infinite;
+        }
+        @keyframes slowSpin { from { transform: translateY(-50%) rotate(0deg); } to { transform: translateY(-50%) rotate(360deg); } }
+
+        .floating-devotional {
+            position: absolute;
+            opacity: 0.15;
+            z-index: 1;
+            animation: floating 8s infinite ease-in-out;
+            pointer-events: none;
+        }
+        @keyframes floating { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        /* UI GRID */
+        .ritual-container {
+            display: grid;
+            grid-template-columns: 460px 1fr;
+            gap: 15px;
+            padding: 15px;
+            height: calc(100% - 75px);
+            z-index: 5;
+        }
+
+        /* VISION FEED */
+        .vision-vault {
+            border: 3px solid var(--godly-gold);
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 25px rgba(241, 211, 138, 0.1);
+        }
+        .video-feed { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+
+        .divine-status {
+            position: absolute;
+            top: 10px; left: 10px;
+            color: var(--pure-gold);
+            font-size: 0.65rem;
+            background: rgba(0,0,0,0.6);
+            padding: 4px 10px;
+            border: 1px solid var(--godly-gold);
+            border-radius: 4px;
+            letter-spacing: 2px;
+        }
+
+        /* ASTRA REVEAL AREA */
+        .astra-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            background: linear-gradient(to right, #fff, var(--pure-gold), var(--saffron));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .shastra-list {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(241, 211, 138, 0.2);
+            border-radius: 8px;
+            padding: 8px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .shastra-item {
+            font-size: 0.65rem;
+            color: var(--godly-gold);
+            border-left: 2px solid var(--saffron);
+            padding-left: 6px;
+        }
+
+        .ritual-result {
+            flex: 1;
+            margin: 10px 0;
+            background: linear-gradient(rgba(255, 153, 51, 0.05), transparent);
+            border-top: 1px solid rgba(241, 211, 138, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #weapon-name {
+            font-size: 1.8rem;
+            color: var(--pure-gold);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+
+        #lore-text {
+            color: #ccc;
+            font-size: 0.75rem;
+            font-style: italic;
+            padding: 0 10px;
+            margin-top: 5px;
+            line-height: 1.4;
+        }
+
+        #conf-meter {
+            color: var(--saffron);
+            font-size: 0.6rem;
+            font-weight: bold;
+            margin-top: 5px;
+            letter-spacing: 2px;
+        }
+
+        .exit-nav {
+            position: absolute;
+            top: 50px;
+            left: 15px;
+            font-size: 0.6rem;
+            color: var(--godly-gold);
+            border: 1px solid var(--godly-gold);
+            padding: 3px 6px;
+            border-radius: 4px;
+            text-decoration: none;
+            z-index: 20;
+        }
+
+        .footer-shanti {
+            text-align: center;
+            color: var(--godly-gold);
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            padding-bottom: 5px;
+        }
+
+        .ritual-flash {
+            animation: flashOverlay 0.5s ease-out;
+        }
+        @keyframes flashOverlay {
+            0% { background: rgba(255, 215, 0, 0.2); }
+            100% { background: transparent; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="astra-tablet">
+        <div class="rotating-mandala"></div>
+        <div class="floating-devotional" style="top:25%; left:10%; font-size:3rem;">🪷</div>
+        <div class="floating-devotional" style="bottom:10%; right:5%; font-size:2rem;">🕉️</div>
+
+        <a href="/" class="exit-nav">← EXIT VIDYA</a>
+
+        <!-- Top Gayatri Mantra -->
+        <div class="top-mantra">
+            ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात्॥
+        </div>
+
+        <div class="ritual-container">
+            <!-- Left Side Feed -->
+            <div class="vision-vault">
+                <div class="divine-status">AAKASH DRISHTI ACTIVE</div>
+                <img src="/air/video" class="video-feed" alt="Detection Feed">
+            </div>
+
+            <!-- Right Side Divine Shastra -->
+            <div class="astra-panel">
+                <h2>🏹 ASTRA VIDYA</h2>
+                
+                <div class="shastra-list">
+                    <div class="shastra-item">🏹 GANDIVA</div>
+                    <div class="shastra-item">🗡️ NANDAKA</div>
+                    <div class="shastra-item">🌀 SUDARSHAN</div>
+                    <div class="shastra-item">🔱 TRISHUL</div>
+                </div>
+
+                <div class="ritual-result" id="displayPanel">
+                    <p style="color:var(--saffron); font-size: 0.5rem; text-transform:uppercase;">Revealed Artifact</p>
+                    <h3 id="weapon-name">Draw Symbol...</h3>
+                    <p id="lore-text">Unleash the patterns of the Mahabali to reveal the sacred celestial weapons.</p>
+                    <p id="conf-meter"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-shanti">
+            ॐ शान्तिः शान्तिः शान्तिः ॥
+        </div>
+    </div>
+
+    <script>
+        let lastWeapon = "";
+        setInterval(async () => {
+            try {
+                const response = await fetch('/air/result');
+                const data = await response.json();
+                
+                if (data.name && data.name !== lastWeapon) {
+                    const nameEl = document.getElementById('weapon-name');
+                    const loreEl = document.getElementById('lore-text');
+                    const confEl = document.getElementById('conf-meter');
+                    const panel = document.getElementById('displayPanel');
+
+                    nameEl.innerText = data.name;
+                    loreEl.innerText = data.lore;
+                    confEl.innerText = "ATMA SYNC: " + (parseFloat(data.conf) * 100).toFixed(1) + "%";
+                    
+                    panel.classList.add('ritual-flash');
+                    setTimeout(() => panel.classList.remove('ritual-flash'), 500);
+                    
+                    lastWeapon = data.name;
+                }
+            } catch (e) {
+                console.log("Searching for Signal...");
+            }
+        }, 400);
+    </script>
+</body>
+</html>
