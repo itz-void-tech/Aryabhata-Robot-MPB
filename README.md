@@ -2,14 +2,9 @@
 
 A cutting-edge humanoid robot controlled by **ESP32-S3** microcontroller with dual TFT eye displays, AI-powered hand gesture recognition, and real-time interaction through a Python Flask web interface.
 
-![Robot Demo](images/robot_1.jpeg)
-
----
-
-## 📹 Video Demonstration
-
-**Watch the robot in action:**  
-📺 [Robot Demo Video](images/robot_video.mp4)
+<div align="center">
+  <img src="images/robot_1.jpeg" width="300" alt="Aryabhata Robot Model" />
+</div>
 
 ---
 
@@ -44,7 +39,47 @@ A cutting-edge humanoid robot controlled by **ESP32-S3** microcontroller with du
 
 ---
 
-## 🔧 Hardware Requirements
+## � Visual Gallery
+
+### Robot Components & Features
+
+<table>
+  <tr>
+    <td align="center" width="25%">
+      <img src="images/robot_1.jpeg" width="200" alt="Full Robot Model" />
+      <br><b>Full Robot Model</b><br>Complete Aryabhata humanoid with expressive eyes
+    </td>
+    <td align="center" width="25%">
+      <img src="images/robot_2.jpeg" width="200" alt="Robot Control System" />
+      <br><b>Control System</b><br>20kg DS3218 Servo mechanics & hardware
+    </td>
+    <td align="center" width="25%">
+      <img src="images/robot_3.jpeg" width="200" alt="Happy Expression" />
+      <br><b>Happy Eyes</b><br>TFT Display - Neutral/Happy Expression
+    </td>
+    <td align="center" width="25%">
+      <img src="images/robot_4.jpeg" width="200" alt="Sad Expression" />
+      <br><b>Sad Eyes</b><br>TFT Display - Sad Emotion Response
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="images/robot_5.jpeg" width="220" alt="Facial Features" />
+      <br><b>Facial Features & Face Lines</b><br>Aryabhata Control - MediaPipe Face Detection
+    </td>
+    <td align="center" width="50%">
+      <img src="images/control.jpeg" width="220" alt="Game Control Interface" />
+      <br><b>Game Control Interface</b><br>Python Flask Web - Interactive Games Dashboard
+    </td>
+  </tr>
+</table>
+
+---
+
+## �🔧 Hardware Requirements
 
 | Component | Specifications |
 |-----------|-----------------|
@@ -158,7 +193,21 @@ python robot.py
 
 ---
 
-## 📁 Project Structure
+## 🎬 Video Demonstration
+
+**Watch Aryabhata in Action** *(Video loads on scroll)*
+
+<div align="center" style="margin: 40px 0;">
+  
+  <video width="560" height="315" controls style="border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+    <source src="images/robot_video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <br><small>📺 Full Demo: Robot plays games, expresses emotions, and interacts with users</small>
+</div>
+
+---
 
 ```
 Aryabhata/
@@ -167,12 +216,13 @@ Aryabhata/
 ├── check_mp.py                # MediaPipe diagnostic tool
 ├── diagnose_camera.py         # Camera diagnostic utility
 ├── images/
-│   ├── robot_1.jpeg          # Robot photos
-│   ├── robot_2.jpeg
-│   ├── robot_3.jpeg
-│   ├── robot_4.jpeg
-│   ├── robot_5.jpeg
-│   └── robot_video.mp4       # Demo video
+│   ├── robot_1.jpeg          # Full robot model
+│   ├── robot_2.jpeg          # Servo control system
+│   ├── robot_3.jpeg          # Happy eyes (TFT display)
+│   ├── robot_4.jpeg          # Sad eyes (TFT display)
+│   ├── robot_5.jpeg          # Face lines & features detection
+│   ├── control.jpeg          # Game control interface
+│   └── robot_video.mp4       # Full demo video
 ├── templates/                 # Flask HTML templates
 │   ├── index.html            # Main web interface
 │   ├── air.html              # Air gesture game
