@@ -22,7 +22,7 @@
     🎯 Meet Aryabhata
   </h3>
   
-  <img src="images/robot_1.jpeg" width="400" alt="Aryabhata Robot Model" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin: 20px 0;" />
+  <img src="images/Aryabhata-Robot-MPB.jpeg" width="400" alt="Aryabhata Robot Model" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin: 20px 0;" />
   
   <p style="font-size: 16px; color: #34495e; font-weight: 500; margin: 10px 0;">
     <strong>A Complete Humanoid Robot</strong><br>
@@ -427,4 +427,5 @@ If you find this project interesting, please ⭐ star this repository!
 
 **Last Updated**: February 2026  
 **Status**: Active Development
+
 
